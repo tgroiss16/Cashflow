@@ -8,6 +8,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import java.io.InputStream;
+import java.util.List;
+
 public class Cashflow extends AppCompatActivity {
 
     @Override
@@ -36,7 +39,11 @@ public class Cashflow extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s2.setAdapter(adapter2);
         //Spinner 2 END
-
+        //CSVKatRead
+        InputStream inputStream = getResources().openRawResource(R.raw.newkats);
+        CSVFile csvFile = new CSVFile(inputStream);
+        List scoreList = csvFile.read();
+        //CSVKatRead END
     }
 
     public void testing(View view){
