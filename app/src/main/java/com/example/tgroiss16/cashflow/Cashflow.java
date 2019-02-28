@@ -2,13 +2,21 @@ package com.example.tgroiss16.cashflow;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class Cashflow extends AppCompatActivity {
@@ -44,7 +52,20 @@ public class Cashflow extends AppCompatActivity {
         CSVFile csvFile = new CSVFile(inputStream);
         List scoreList = csvFile.read();
         //CSVKatRead END
+        //CSVKatWrite
+        try {
+            File file = new File("C:\\Users\\tgroiss16\\Desktop\\Cashflow\\app\\src\\main\\res\\raw\\newkats.csv");
+            FileWriter fileWriter  = new FileWriter(file);
+            BufferedWriter bfWriter = new BufferedWriter(fileWriter);
+            bfWriter.write("Datum; Euro; Kategorie");
+            bfWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //CSVKatWrite END
+
     }
+
 
     public void testing(View view){
 
