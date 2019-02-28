@@ -15,7 +15,27 @@ public class Cashflow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cashflow);
         TextView err = (TextView)findViewById(R.id.eurobetrag);
-        
+        //End of Main
+        //Spinner 1
+        String[] ausgabenarr = new String[] {
+                "Ausgabe", "Einnahme"
+        };
+        Spinner s1 = (Spinner) findViewById(R.id.ausgaben);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, ausgabenarr);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s1.setAdapter(adapter1);
+        //Spinner 1 END
+        //Spinner 2
+        String[] kategorienarr = new String[] {
+                "Überleben", "Freizeit", "Arbeit", "Sonstiges"
+        };
+        Spinner s2 = (Spinner) findViewById(R.id.kategorien);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, kategorienarr);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s2.setAdapter(adapter2);
+        //Spinner 2 END
 
     }
 
